@@ -12,26 +12,26 @@ const WORKS = [
   {
     img: img1,
     tag: '01',
-    title: 'Diagnóstico y medición de cargas',
-    desc: 'Relevamiento de consumos y estado de tableros con instrumental certificado.',
+    title: 'Centros de control y CCM',
+    desc: 'Montaje, cableado y conexionado de gavetas y celdas de distribución en planta.',
   },
   {
     img: img2,
     tag: '02',
-    title: 'Tableros y protecciones',
-    desc: 'Diseño, armado y actualización de tableros eléctricos industriales.',
+    title: 'Tableros de potencia y capacitores',
+    desc: 'Armado de tableros con seccionadores, barras protegidas y corrección de factor de potencia.',
   },
   {
     img: img3,
     tag: '03',
-    title: 'Instalación segura en planta',
-    desc: 'Intervenciones con EPP completo y protocolos de seguridad eléctrica.',
+    title: 'Canalizaciones y bandejas técnicas',
+    desc: 'Montaje de bandejas portacables perforadas y curvas técnicas en naves industriales.',
   },
   {
     img: img4,
     tag: '04',
-    title: 'Bandejas portacables',
-    desc: 'Tendido y organización de cableado en bandejas y canalizaciones.',
+    title: 'Tendido de conductores de potencia',
+    desc: 'Tendido, peinado y zunchado de conductores de gran sección según normativa.',
   },
 ]
 
