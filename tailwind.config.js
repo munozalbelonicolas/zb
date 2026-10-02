@@ -14,15 +14,15 @@ export default {
           500: '#3A3D44',
         },
         volt: {
-          DEFAULT: '#FB5F0A',
-          50: '#FEF0E7',
-          100: '#FDDDCC',
-          300: '#FC9B5C',
-          400: '#FC7A32',
-          500: '#FB5F0A',
-          600: '#D94D07',
-          700: '#B03C05',
-          900: '#5C1E01',
+          DEFAULT: '#FF7A2F',
+          50: '#FFF1E8',
+          100: '#FFE0CC',
+          300: '#FFAB77',
+          400: '#FF904F',
+          500: '#FF7A2F',
+          600: '#E05E18',
+          700: '#B84808',
+          900: '#5C2201',
         },
       },
       fontFamily: {
@@ -32,16 +32,16 @@ export default {
       },
       backgroundImage: {
         'hazard-stripes':
-          'repeating-linear-gradient(135deg, #FB5F0A 0px, #FB5F0A 22px, #0A0A0A 22px, #0A0A0A 44px)',
+          'repeating-linear-gradient(135deg, #FF7A2F 0px, #FF7A2F 22px, #0A0A0A 22px, #0A0A0A 44px)',
         'grid-lines':
-          'linear-gradient(rgba(251,95,10,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(251,95,10,0.08) 1px, transparent 1px)',
+          'linear-gradient(rgba(255,122,47,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,122,47,0.08) 1px, transparent 1px)',
       },
       backgroundSize: {
         grid: '48px 48px',
       },
       boxShadow: {
-        volt: '0 0 40px -5px rgba(251,95,10,0.45)',
-        'volt-sm': '0 0 20px -4px rgba(251,95,10,0.5)',
+        volt: '0 0 40px -5px rgba(255,122,47,0.45)',
+        'volt-sm': '0 0 20px -4px rgba(255,122,47,0.5)',
       },
       keyframes: {
         marquee: {
