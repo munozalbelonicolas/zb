@@ -31,12 +31,12 @@ export default function Navbar() {
         scrolled ? 'bg-ink-950/90 backdrop-blur-md border-b border-ink-700' : 'bg-transparent'
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2.5 lg:px-10">
         <a href="#top" className="group flex items-center">
           <img
             src={logo}
             alt="Z&B — Soluciones eléctricas inteligentes"
-            className="h-11 w-auto transition-transform duration-300 group-hover:scale-105 sm:h-14"
+            className="h-[88px] w-auto transition-transform duration-300 group-hover:scale-105 sm:h-[112px]"
           />
         </a>
 

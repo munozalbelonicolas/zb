@@ -19,7 +19,7 @@ export default function Footer() {
             <img
               src={logoFull}
               alt="Z&B — Soluciones eléctricas inteligentes"
-              className="h-20 w-auto sm:h-24"
+              className="h-40 w-auto sm:h-48"
             />
           </a>
 
