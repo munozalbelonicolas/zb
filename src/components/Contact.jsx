@@ -19,12 +19,28 @@ export default function Contact() {
     message: '',
   })
   const [sent, setSent] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   const update = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }))
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSent(true)
+    setLoading(true)
+    setError(null)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error('Error al enviar')
+      setSent(true)
+    } catch {
+      setError('Hubo un problema al enviar. Intentá de nuevo o escribinos por WhatsApp.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -152,10 +168,23 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 border-2 border-volt bg-volt py-3.5 font-display text-sm font-bold uppercase tracking-widest text-ink-950 shadow-volt-sm transition-transform hover:-translate-y-0.5 sm:w-auto sm:px-10"
+              disabled={loading}
+              className="mt-6 inline-flex w-full items-center justify-center gap-2 border-2 border-volt bg-volt py-3.5 font-display text-sm font-bold uppercase tracking-widest text-ink-950 shadow-volt-sm transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 sm:w-auto sm:px-10"
             >
-              <Send size={16} />
-              Enviar consulta
+              {loading ? (
+                <>
+                  <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8h4z" />
+                  </svg>
+                  Enviando...
+                </>
+              ) : (
+                <>
+                  <Send size={16} />
+                  Enviar consulta
+                </>
+              )}
             </button>
 
             {sent && (
@@ -165,6 +194,16 @@ export default function Contact() {
                 className="mt-4 font-mono text-sm text-volt"
               >
                 ✓ Gracias, recibimos tu consulta. Te contactaremos a la brevedad.
+              </motion.p>
+            )}
+
+            {error && (
+              <motion.p
+                initial={{ opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-4 font-mono text-sm text-red-400"
+              >
+                ✗ {error}
               </motion.p>
             )}
           </motion.form>
