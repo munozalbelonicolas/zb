@@ -55,7 +55,7 @@ export default function Contact() {
           >
             <div className="space-y-6">
               {[
-                { icon: Phone, label: 'Teléfono / WhatsApp', value: '+54 9 XXX XXX-XXXX' },
+                { icon: Phone, label: 'Teléfono / WhatsApp', value: '+54 9 2612 51-5756' },
                 { icon: Mail, label: 'Email', value: 'contacto@zybelectricidad.com' },
                 { icon: MapPin, label: 'Zona de cobertura', value: 'A definir por la empresa' },
               ].map(({ icon: Icon, label, value }) => (
@@ -74,7 +74,7 @@ export default function Contact() {
             </div>
 
             <a
-              href="https://wa.me/549XXXXXXXXXX"
+              href="https://wa.me/5492612515756"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-10 inline-flex items-center justify-center gap-2 border-2 border-volt bg-volt py-3.5 font-display text-sm font-bold uppercase tracking-widest text-ink-950 shadow-volt-sm transition-transform hover:-translate-y-0.5"
