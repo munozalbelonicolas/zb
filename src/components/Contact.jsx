@@ -35,10 +35,13 @@ export default function Contact() {
         body: JSON.stringify(form),
       })
       const data = await res.json().catch(() => ({}))
-      if (!res.ok) throw new Error(data.error || 'Error al enviar')
+      if (!res.ok) {
+        console.error('Error enviando consulta:', data?.error)
+        throw new Error('Hubo un inconveniente al enviar tu consulta. Por favor intentá nuevamente o comunicate por WhatsApp.')
+      }
       setSent(true)
     } catch (err) {
-      setError(err.message || 'Hubo un problema al enviar. Intentá de nuevo o escribinos por WhatsApp.')
+      setError(err.message || 'Hubo un inconveniente al enviar tu consulta. Por favor intentá nuevamente o comunicate por WhatsApp.')
     } finally {
       setLoading(false)
     }

@@ -15,10 +15,12 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Faltan campos requeridos' })
   }
 
+  const toEmail = process.env.CONTACT_EMAIL || 'zybsolucionesintegrales@gmail.com'
+
   try {
     const { data, error } = await resend.emails.send({
       from: 'ZYB Contacto <onboarding@resend.dev>',
-      to: ['marianoformal@gmail.com'],
+      to: [toEmail],
       subject: `Nueva consulta de ${name} — ${service}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #111; color: #fff; padding: 32px; border-radius: 8px;">
