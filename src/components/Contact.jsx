@@ -35,7 +35,7 @@ export default function Contact() {
         body: JSON.stringify(form),
       })
       const data = await res.json().catch(() => ({}))
-      if (!res.ok) throw new Error(data.error || 'Error al enviar el mensaje')
+      if (!res.ok) throw new Error(data.error || 'Error al enviar')
       setSent(true)
     } catch (err) {
       setError(err.message || 'Hubo un problema al enviar. Intentá de nuevo o escribinos por WhatsApp.')
