@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, MapPin, MessageCircle, Phone, Send } from 'lucide-react'
+import { validateArgentinePhone, formatArgentinePhoneDisplay } from '../utils/phoneValidation'
 
 const SERVICE_OPTIONS = [
   'Domótica',
@@ -21,18 +22,31 @@ export default function Contact() {
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [phoneError, setPhoneError] = useState(null)
 
   const update = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }))
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    // Validar formato de teléfono de Argentina
+    const phoneCheck = validateArgentinePhone(form.phone)
+    if (!phoneCheck.isValid) {
+      setPhoneError(phoneCheck.message)
+      return
+    }
+    setPhoneError(null)
+
     setLoading(true)
     setError(null)
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          phone: formatArgentinePhoneDisplay(phoneCheck.normalized),
+        }),
       })
       const data = await res.json().catch(() => ({}))
       if (!res.ok) {
@@ -127,16 +141,39 @@ export default function Contact() {
               </label>
 
               <label className="flex flex-col gap-2">
-                <span className="font-display text-xs font-semibold uppercase tracking-widest text-white/50">
-                  Teléfono
-                </span>
+                <div className="flex items-baseline justify-between">
+                  <span className="font-display text-xs font-semibold uppercase tracking-widest text-white/50">
+                    Teléfono / WhatsApp
+                  </span>
+                  <span className="font-mono text-[10px] text-white/40">
+                    Con cód. de área (ej: 261, 11)
+                  </span>
+                </div>
                 <input
                   required
+                  type="tel"
                   value={form.phone}
-                  onChange={update('phone')}
-                  placeholder="+54 9 ..."
-                  className="border border-ink-600 bg-ink-900 px-4 py-3 text-white placeholder-white/30 outline-none transition-colors focus:border-volt"
+                  onChange={(e) => {
+                    update('phone')(e)
+                    if (phoneError) setPhoneError(null)
+                  }}
+                  onBlur={() => {
+                    if (form.phone.trim()) {
+                      const check = validateArgentinePhone(form.phone)
+                      if (!check.isValid) setPhoneError(check.message)
+                      else setPhoneError(null)
+                    }
+                  }}
+                  placeholder="Ej: 261 251-5756 o 11 2345-6789"
+                  className={`border bg-ink-900 px-4 py-3 text-white placeholder-white/30 outline-none transition-colors ${
+                    phoneError ? 'border-red-500 focus:border-red-500' : 'border-ink-600 focus:border-volt'
+                  }`}
                 />
+                {phoneError && (
+                  <span className="font-mono text-xs text-red-400">
+                    ⚠ {phoneError}
+                  </span>
+                )}
               </label>
 
               <label className="flex flex-col gap-2">
