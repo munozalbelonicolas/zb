@@ -1,23 +1,34 @@
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export default async function handler(req, res) {
   // Solo aceptar POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  const { name, phone, service, message } = req.body
+  const apiKey = process.env.RESEND_API_KEY
+  if (!apiKey) {
+    console.error('Error: RESEND_API_KEY no está configurada en las variables de entorno de Vercel.')
+    return res.status(500).json({ error: 'Configuración de servidor incompleta (falta RESEND_API_KEY).' })
+  }
+
+  const resend = new Resend(apiKey)
+
+  const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body
+  const { name, phone, service, message } = body || {}
 
   // Validación básica
   if (!name || !phone || !service) {
-    return res.status(400).json({ error: 'Faltan campos requeridos' })
+    return res.status(400).json({ error: 'Faltan campos requeridos (nombre, teléfono o servicio).' })
   }
 
+  // Si tienes un dominio verificado en Resend (ej: nilotech.online), úsalo como remitente.
+  // Por defecto usamos notificaciones@nilotech.online, o lo que definas en RESEND_FROM.
+  const fromAddress = process.env.RESEND_FROM || 'ZYB Contacto <notificaciones@nilotech.online>'
+
   try {
-    await resend.emails.send({
-      from: 'ZYB Contacto <onboarding@resend.dev>',
+    const { data, error } = await resend.emails.send({
+      from: fromAddress,
       to: ['marianoformal@gmail.com'],
       subject: `Nueva consulta de ${name} — ${service}`,
       html: `
@@ -56,9 +67,14 @@ export default async function handler(req, res) {
       `,
     })
 
-    return res.status(200).json({ ok: true })
-  } catch (error) {
-    console.error('Resend error:', error)
-    return res.status(500).json({ error: 'Error al enviar el correo' })
+    if (error) {
+      console.error('Error devuelto por Resend API:', error)
+      return res.status(400).json({ error: error.message || 'Error de Resend al despachar email' })
+    }
+
+    return res.status(200).json({ ok: true, id: data?.id })
+  } catch (err) {
+    console.error('Error inesperado al enviar:', err)
+    return res.status(500).json({ error: err.message || 'Error interno del servidor al enviar el correo' })
   }
 }

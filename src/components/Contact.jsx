@@ -34,10 +34,11 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       })
-      if (!res.ok) throw new Error('Error al enviar')
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok) throw new Error(data.error || 'Error al enviar el mensaje')
       setSent(true)
-    } catch {
-      setError('Hubo un problema al enviar. Intentá de nuevo o escribinos por WhatsApp.')
+    } catch (err) {
+      setError(err.message || 'Hubo un problema al enviar. Intentá de nuevo o escribinos por WhatsApp.')
     } finally {
       setLoading(false)
     }
