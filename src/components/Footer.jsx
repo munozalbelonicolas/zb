@@ -106,6 +106,19 @@ export default function Footer() {
 
         <div className="mt-10 flex flex-col gap-4 border-t border-ink-800 pt-6 font-mono text-xs uppercase tracking-widest text-white/30 md:flex-row md:items-center md:justify-between">
           <span>© {new Date().getFullYear()} Z&B — Todos los derechos reservados</span>
+
+          <a
+            href="https://nilotech.online"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 transition-colors hover:text-white"
+          >
+            <span>Powered by</span>
+            <span className="font-bold tracking-wider text-[#FFD400] hover:text-[#FFE24A]">
+              Nilotech
+            </span>
+          </a>
+
           <span>Domótica · Automatización · Redes & Starlink · Cámaras IP</span>
         </div>
       </div>
