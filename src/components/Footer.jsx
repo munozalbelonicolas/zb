@@ -111,10 +111,10 @@ export default function Footer() {
             href="https://nilotech.online"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-white"
+            className="inline-flex items-center gap-1.5 normal-case tracking-normal transition-colors hover:text-white"
           >
             <span>Powered by</span>
-            <span className="font-bold tracking-wider text-[#FFD400] hover:text-[#FFE24A]">
+            <span className="font-bold normal-case text-[#FFD400] hover:text-[#FFE24A]">
               Nilotech
             </span>
           </a>
