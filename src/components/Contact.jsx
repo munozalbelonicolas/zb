@@ -13,6 +13,40 @@ const SERVICE_OPTIONS = [
   'Otro / no estoy seguro',
 ]
 
+function InstagramIcon({ size = 16, className = '' }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  )
+}
+
+function FacebookIcon({ size = 16, className = '' }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+    >
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+    </svg>
+  )
+}
+
 export default function Contact() {
   const [form, setForm] = useState({
     name: '',
@@ -117,6 +151,34 @@ export default function Contact() {
               <MessageCircle size={18} />
               Escribinos por WhatsApp
             </a>
+
+            <div className="mt-8 border-t border-ink-800 pt-6">
+              <span className="block font-display text-xs font-semibold uppercase tracking-widest text-white/40">
+                Seguinos en redes
+              </span>
+              <div className="mt-3 flex items-center gap-3">
+                <a
+                  href="https://www.instagram.com/zyb_soluciones_integrales?stkn=bXV0aHVoN25ldWVx"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram Z&B"
+                  className="flex flex-1 items-center justify-center gap-2 border border-ink-700 bg-ink-900 py-2.5 text-white/70 transition-all hover:border-volt hover:bg-volt hover:text-ink-950"
+                >
+                  <InstagramIcon size={16} />
+                  <span className="font-display text-xs font-bold uppercase tracking-wider">Instagram</span>
+                </a>
+                <a
+                  href="https://www.facebook.com/share/1GdrX9fPDN/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook Z&B"
+                  className="flex flex-1 items-center justify-center gap-2 border border-ink-700 bg-ink-900 py-2.5 text-white/70 transition-all hover:border-volt hover:bg-volt hover:text-ink-950"
+                >
+                  <FacebookIcon size={16} />
+                  <span className="font-display text-xs font-bold uppercase tracking-wider">Facebook</span>
+                </a>
+              </div>
+            </div>
           </motion.div>
 
           <motion.form
