@@ -1,4 +1,5 @@
 import logoFull from '../assets/images/logo-zb-full.png'
+import logoNilo from '../assets/images/Logo-nilo.png'
 
 const LINKS = [
   { label: 'Servicios', href: '#servicios' },
@@ -111,10 +112,15 @@ export default function Footer() {
             href="https://nilotech.online"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 normal-case tracking-normal transition-colors hover:text-white"
+            className="group inline-flex items-center gap-2 normal-case tracking-normal text-white/50 transition-colors hover:text-white"
           >
             <span>Powered by</span>
-            <span className="font-bold normal-case text-[#FFD400] hover:text-[#FFE24A]">
+            <img
+              src={logoNilo}
+              alt="Logo Nilotech"
+              className="h-4.5 w-auto object-contain transition-transform duration-300 group-hover:scale-110 sm:h-5"
+            />
+            <span className="font-bold normal-case text-white">
               Nilotech
             </span>
           </a>
