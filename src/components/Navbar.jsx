@@ -8,6 +8,7 @@ const LINKS = [
   { label: 'Domótica', href: '#domotica' },
   { label: 'PLC', href: '#automatizacion-plc' },
   { label: 'Obras', href: '#obras-industriales' },
+  { label: 'Conectividad', href: '#conectividad' },
   { label: 'Nosotros', href: '#nosotros' },
   { label: 'Contacto', href: '#contacto' },
 ]

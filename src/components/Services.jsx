@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Bike, Camera, Cpu, Home, Zap, ArrowUpRight } from 'lucide-react'
+import { Bike, Camera, Cpu, Home, Wifi, Zap, ArrowUpRight } from 'lucide-react'
 import Tilt3D from './Tilt3D'
 
 const SERVICES = [
@@ -33,6 +33,12 @@ const SERVICES = [
     title: 'Cámaras IP',
     desc: 'Sistemas de videovigilancia IP con monitoreo remoto desde tu celular, grabación en la nube y configuración a medida.',
   },
+  {
+    icon: Wifi,
+    tag: '06',
+    title: 'Redes y Starlink',
+    desc: 'Extensión de redes Wi-Fi, cableado estructurado LAN, enlaces punto a punto para predios e instalación profesional de Starlink.',
+  },
 ]
 
 const container = {
@@ -61,7 +67,7 @@ export default function Services() {
             </h2>
           </div>
           <p className="max-w-md text-white/50">
-            Cinco especialidades, un mismo estándar: precisión técnica,
+            Seis especialidades, un mismo estándar: precisión técnica,
             materiales certificados y soluciones que se sostienen en el tiempo.
           </p>
         </div>
@@ -73,11 +79,10 @@ export default function Services() {
           viewport={{ once: true, amount: 0.2 }}
           className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {SERVICES.map(({ icon: Icon, tag, title, desc }, idx) => (
+          {SERVICES.map(({ icon: Icon, tag, title, desc }) => (
             <motion.div
               key={title}
               variants={item}
-              className={idx === 4 ? 'sm:col-span-2 lg:col-span-1' : ''}
             >
               <Tilt3D maxTilt={8} scale={1.02} className="h-full">
                 <div className="group relative h-full overflow-hidden border border-ink-700 bg-ink-900/60 p-8 transition-colors hover:border-volt/60">

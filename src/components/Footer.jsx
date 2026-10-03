@@ -5,6 +5,7 @@ const LINKS = [
   { label: 'Domótica', href: '#domotica' },
   { label: 'PLC', href: '#automatizacion-plc' },
   { label: 'Obras', href: '#obras-industriales' },
+  { label: 'Conectividad', href: '#conectividad' },
   { label: 'Nosotros', href: '#nosotros' },
   { label: 'Contacto', href: '#contacto' },
 ]
@@ -38,7 +39,7 @@ export default function Footer() {
 
         <div className="mt-10 flex flex-col gap-4 border-t border-ink-800 pt-6 font-mono text-xs uppercase tracking-widest text-white/30 md:flex-row md:items-center md:justify-between">
           <span>© {new Date().getFullYear()} Z&B — Todos los derechos reservados</span>
-          <span>Domótica · Automatización · Electricidad · Cámaras IP</span>
+          <span>Domótica · Automatización · Redes & Starlink · Cámaras IP</span>
         </div>
       </div>
     </footer>

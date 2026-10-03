@@ -9,6 +9,7 @@ const SERVICE_OPTIONS = [
   'Electricidad industrial',
   'Electricidad de motocicletas',
   'Cámaras IP',
+  'Redes, Wi-Fi y Starlink',
   'Otro / no estoy seguro',
 ]
 

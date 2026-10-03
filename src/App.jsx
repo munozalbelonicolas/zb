@@ -5,6 +5,7 @@ import Services from './components/Services'
 import SmartHome from './components/SmartHome'
 import IndustrialAutomation from './components/IndustrialAutomation'
 import IndustrialShowcase from './components/IndustrialShowcase'
+import NetworkConnectivity from './components/NetworkConnectivity'
 import About from './components/About'
 import Process from './components/Process'
 import Contact from './components/Contact'
@@ -22,6 +23,7 @@ export default function App() {
         <SmartHome />
         <IndustrialAutomation />
         <IndustrialShowcase />
+        <NetworkConnectivity />
         <About />
         <Process />
         <Contact />
