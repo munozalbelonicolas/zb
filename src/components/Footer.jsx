@@ -118,7 +118,7 @@ export default function Footer() {
             <img
               src={logoNilo}
               alt="Logo Nilotech"
-              className="h-4.5 w-auto object-contain transition-transform duration-300 group-hover:scale-110 sm:h-5"
+              className="h-[18px] w-auto shrink-0 object-contain transition-transform duration-300 group-hover:scale-110 sm:h-5"
             />
             <span className="font-bold normal-case text-white">
               Nilotech
