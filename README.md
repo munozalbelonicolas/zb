@@ -26,7 +26,7 @@ Buscá estos placeholders y reemplazalos por los datos reales de la empresa:
   y [`src/components/FloatingWhatsApp.jsx`](src/components/FloatingWhatsApp.jsx),
   reemplazá `https://wa.me/549XXXXXXXXXX` por el número real
   (formato `549` + código de área + número, sin espacios ni signos).
-- **Email de contacto**: `contacto@zybelectricidad.com` en `Contact.jsx`.
+- **Email de contacto**: `zybsolucionesintegrales@gmail.com` en `Contact.jsx`.
 - **Zona de cobertura**: "A definir por la empresa" en `Contact.jsx`.
 - **Estadísticas** (años de experiencia, instalaciones realizadas, % de
   clientes satisfechos) en [`src/components/About.jsx`](src/components/About.jsx)

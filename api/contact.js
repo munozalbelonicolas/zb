@@ -118,7 +118,7 @@ export default async function handler(req, res) {
 
           <div style="margin-top: 32px; padding: 16px; background: #1a1a1a; border-left: 3px solid #FD6D1C; border-radius: 4px;">
             <p style="margin: 0; color: #888; font-size: 13px;">
-              Este mensaje fue enviado desde el formulario de contacto de <strong style="color: #FD6D1C;">zybelectricidad.com</strong>
+              Este mensaje fue enviado desde el formulario de contacto de <strong style="color: #FD6D1C;">zybsolucionesintegrales.com.ar</strong>
             </p>
           </div>
         </div>

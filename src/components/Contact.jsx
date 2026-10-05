@@ -125,8 +125,8 @@ export default function Contact() {
             <div className="space-y-6">
               {[
                 { icon: Phone, label: 'Teléfono / WhatsApp', value: '+54 9 2612 51-5756' },
-                { icon: Mail, label: 'Email', value: 'contacto@zybelectricidad.com' },
-                { icon: MapPin, label: 'Zona de cobertura', value: 'A definir por la empresa' },
+                { icon: Mail, label: 'Email', value: 'zybsolucionesintegrales@gmail.com' },
+                { icon: MapPin, label: 'Zona de cobertura', value: 'Potrerillos y alrededores' },
               ].map(({ icon: Icon, label, value }) => (
                 <div key={label} className="flex items-start gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center border border-ink-600 bg-ink-900 text-volt">
